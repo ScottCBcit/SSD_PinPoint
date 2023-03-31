@@ -19,7 +19,7 @@ android {
             useSupportLibrary true
         }
         manifestPlaceholders = [GOOGLE_MAP_API_KEY: "AIzaSyDQgq5XY9l646y9Kart0sYh4CtC5UK0l3s"]
-        buildConfigField "String", "GOOGLE_PLACE_API_KEY", "\"AIzaSyDQgq5XY9l646y9Kart0sYh4CtC5UK0l3s\""
+
     }
 
     buildTypes {
@@ -64,19 +64,17 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
 
     //maps
-    implementation 'com.google.maps.android:maps-compose:2.7.2'
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
-
-    implementation 'com.android.volley:volley:1.2.1'
-    implementation 'com.google.android.libraries.places:places:2.4.0'
-
     implementation 'com.google.maps.android:maps-compose:2.11.2'
 
-    // KTX for the Maps SDK for Android
-    implementation 'com.google.maps.android:maps-ktx:3.2.1'
 
-    // (Optional) KTX for the Maps SDK for Android Utility Library
-    implementation 'com.google.maps.android:maps-utils-ktx:3.2.1'
-
+//    implementation 'com.android.volley:volley:1.2.1'
+//    implementation 'com.google.android.libraries.places:places:2.4.0'
+//
+//    // KTX for the Maps SDK for Android
+//    implementation 'com.google.maps.android:maps-ktx:3.2.1'
+//
+//    // (Optional) KTX for the Maps SDK for Android Utility Library
+//    implementation 'com.google.maps.android:maps-utils-ktx:3.2.1'
 
 }

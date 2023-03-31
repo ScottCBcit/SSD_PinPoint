@@ -9,14 +9,12 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.slice_maps.ui.theme.Slice_MapsTheme
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
-import com.google.maps.android.compose.*
-import com.example.slice_maps.MapStyle
 import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.maps.android.compose.*
 
 
 class MainActivity : ComponentActivity() {
@@ -38,51 +36,34 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun SliceMap() {
-    val bcit = LatLng(49.283451, -123.115251)
+    val location = LatLng(49.283451, -123.115251)
     val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(bcit, 14f)
+        position = CameraPosition.fromLatLngZoom(location, 14f)
     }
-//    val context = LocalContext.current
-//    val placesClient = remember(context) {
-//        Places.createClient(context)
-//    }
-//    val places = remember { mutableStateOf<List<Place>>(emptyList()) }
-//    LaunchedEffect(Unit) {
-//        val request = FindCurrentPlaceRequest.newInstance(listOf(Place.Field.ID, Place.Field.NAME))
-//        val response = placesClient.findCurrentPlace(request)
-//        places.value = response.placeLikelihoods.map { it.place }
-//    }
 
     GoogleMap(
         modifier = Modifier.fillMaxSize(),
         cameraPositionState = cameraPositionState,
         uiSettings = MapUiSettings(
-            zoomControlsEnabled = true,
-            compassEnabled = true,
             myLocationButtonEnabled = false,
             mapToolbarEnabled = false,
-            scrollGesturesEnabled = true,
-            zoomGesturesEnabled = true,
-            tiltGesturesEnabled = false,
-            rotationGesturesEnabled = true
         ),
-            properties = MapProperties(
+        properties = MapProperties(
             mapStyleOptions = MapStyleOptions(
                 MapStyle.json
             )
-
-        )
+        ),
 
     ) {
         Marker(
-            state = MarkerState(position = bcit),
+            state = MarkerState(position = location),
             title = "BCIT",
             snippet = "Downtown Campus"
         )
         Circle(
-            center = bcit,
+            center = location,
             radius = 500.0, // radius in meters
-            fillColor = Color(0x462196F3), // semi-transparent red color
+            fillColor = Color(0x462196F3), // semi-transparent blue color
             strokeWidth = 0f // no stroke
         )
     }
