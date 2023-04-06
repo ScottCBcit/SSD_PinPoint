@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -18,7 +19,6 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
-        manifestPlaceholders = [GOOGLE_MAP_API_KEY: "AIzaSyDQgq5XY9l646y9Kart0sYh4CtC5UK0l3s"]
 
     }
 

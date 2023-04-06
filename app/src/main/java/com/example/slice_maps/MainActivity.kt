@@ -50,7 +50,7 @@ fun SliceMap() {
         ),
         properties = MapProperties(
             mapStyleOptions = MapStyleOptions(
-                MapStyle.json
+                 MapStyle.json
             )
         ),
 
